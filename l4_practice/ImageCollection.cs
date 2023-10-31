@@ -7,19 +7,19 @@ namespace l4_practice
 
     public partial class ImageCollection : Form
     {
-        FlowLayoutPanel flowLayoutPanel;
-        PictureBox pictureBox;
-        int formHeight = 400;
-        int formWidth = 420;
-        int pictureBoxHeight = 62;
-        int pictureBoxWidth = 125;
+        private FlowLayoutPanel flowLayoutPanel;
+        private PictureBox pictureBox;
+
+        private int formHeight = 400;
+        private int formWidth = 420;
+        private int pictureBoxHeight = 62;
+        private int pictureBoxWidth = 125;
 
         public ImageCollection()
         {
             this.Load += ImageCollection_Load;
             InitializeComponent();
         }
-
         private void ImageCollection_Load(object? sender, EventArgs e)
         {
             this.Text = "Image Collection";
@@ -34,10 +34,7 @@ namespace l4_practice
 
             foreach (PictureBox el in flowLayoutPanel.Controls.OfType<PictureBox>())
             {
-                el.Click += (s, a) =>
-                {
-                    ShowImageInDialog(el.Image);
-                };
+                el.Click += (s, a) => { ShowImageInDialog(el.Image); };
             }
         }
 
